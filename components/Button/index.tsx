@@ -31,7 +31,6 @@ export const Button = ({
       : "bg-white border border-neutral-500";
   const textColor = variant === "primary" ? "text-white" : "text-neutral-900";
   const arrowColor = variant === "primary" ? "#DCDDE1" : "#222542";
-  // const fontSize = size === "md" ? "text-base" : "text-sm";
   const fontSize = getFontSizeBySize(size);
   const borderRadius = size === "sm" ? "rounded-sm" : "rounded-md";
   const paddingY = size === "lg" ? "py-md" : "py-2xs";

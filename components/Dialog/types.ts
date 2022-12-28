@@ -1,6 +1,6 @@
 import { ReactElement } from "react"
 
-export interface AlertProps {
+export interface DialogProps {
   title: string
   children: ReactElement | ReactElement[] 
   onClose: () => any 

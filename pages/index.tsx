@@ -11,10 +11,13 @@ import { Footer } from "../components/Footer";
 import { ShareForm } from "../components/forms/ShareForm";
 import { Dialog } from "../components/Dialog";
 import { SocialMediaButtons } from "../components/SocialMediaButtons";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [isDialogVisible, setIsDialogVisible] = useState(false);
+
   const domain = "example.com";
 
   return (
@@ -29,7 +32,11 @@ export default function Home() {
       <main>
         <Header />
 
-        <Dialog title="Share DNS" onClose={() => console.log("close")} visible>
+        <Dialog
+          title="Share DNS"
+          onClose={() => setIsDialogVisible(false)}
+          visible={isDialogVisible}
+        >
           <ShareForm />
 
           <Button
@@ -72,7 +79,7 @@ export default function Home() {
 
           <section className="flex justify-between items-center py-lg border-t border-b border-neutral-50">
             <p>Want to send these to a friend/colleague to do for you?</p>
-            <Button withIcon onClick={() => {}}>
+            <Button withIcon onClick={() => setIsDialogVisible(true)}>
               Share
             </Button>
           </section>
