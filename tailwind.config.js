@@ -35,23 +35,35 @@ module.exports = {
     },
     fontFamily: {}, // TBD inter
     fontSize: {
-      sm: "0.75rem", // 12
-      md: "0.875rem", // 14
-      base: "1rem", // 16
-      lg: "1.25rem", // 20
-      xl: "2rem", // 32
+      sm: "0.75rem", // 12px
+      md: "0.875rem", // 14px
+      base: "1rem", // 16px
+      lg: "1.25rem", // 20px
+      xl: "2rem", // 32px
     },
     extend: {
       borderRadius: {
-        md: "0.5rem",
+        sm: "0.25rem", // 4px
+        md: "0.5rem", // 8px
       },
       padding: {
-        "2xs": "0.5rem", // 8
-        xs: "0.75rem", // 12
-        sm: "1rem", // 16
-        md: "1.25rem", // 20
-        lg: "1.5rem", // 24
-        xl: "2rem", // 32
+        "3xs": "0.375rem", // 6px
+        "2xs": "0.5rem", // 8px
+        xs: "0.75rem", // 12px
+        sm: "1rem", // 16px
+        md: "1.25rem", // 20px
+        lg: "1.5rem", // 24px
+        xl: "2rem", // 32px
+        "2xl": "3rem", // 48px
+      },
+      margin: {
+        "2xs": "0.5rem", // 8px
+        xs: "0.75rem", // 12px
+        sm: "1rem", // 16px
+        md: "1.25rem", // 20px
+        lg: "1.5rem", // 24px
+        xl: "2rem", // 32px
+        "2xl": "5rem",
       },
     },
   },

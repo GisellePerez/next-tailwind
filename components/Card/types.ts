@@ -3,4 +3,5 @@ export interface CardProps {
   description: string
   variant: 'primary' | 'secondary'
   onClick?: () => any
+  withIcon?: boolean
 }
