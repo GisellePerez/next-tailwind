@@ -20,7 +20,7 @@ export const Card = ({
 
   return (
     <div
-      className={`grid grid-cols-[_1fr,_auto] gap-4 items-center p-xs border border-neutral-50 rounded-md  ${cardColors}`}
+      className={`grid grid-cols-[_1fr,_auto] gap-4 p-xs border border-neutral-50 rounded-md  ${cardColors}`}
       onClick={onClick}
     >
       <div>
@@ -28,7 +28,7 @@ export const Card = ({
         <p className={`${descriptionColor} text-sm`}>{description}</p>
       </div>
 
-      {withIcon && <ArrowRight color={arrowColor} />}
+      {withIcon && <ArrowRight className="self-center" color={arrowColor} />}
     </div>
   );
 };

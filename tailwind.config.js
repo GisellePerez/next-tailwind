@@ -34,7 +34,6 @@ module.exports = {
       black: "#000000",
       blackWithOpacity: "rgba(0, 0, 0, 0.6)",
     },
-    fontFamily: {}, // TBD inter
     fontSize: {
       sm: "0.75rem", // 12px
       md: "0.875rem", // 14px
