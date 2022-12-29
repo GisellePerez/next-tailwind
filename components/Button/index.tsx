@@ -45,7 +45,7 @@ export const Button = ({
     >
       <p className="pb-0.5">{children}</p>
 
-      {withIcon && <ArrowRight className="mb-0.5" color={arrowColor} />}
+      {withIcon && <ArrowRight className="mt-0.5" color={arrowColor} />}
     </button>
   );
 };

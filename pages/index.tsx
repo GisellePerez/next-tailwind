@@ -11,14 +11,26 @@ import { Footer } from "../components/Footer";
 import { ShareForm } from "../components/forms/ShareForm";
 import { Dialog } from "../components/Dialog";
 import { SocialMediaButtons } from "../components/SocialMediaButtons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { LoadingScreen } from "../components/LoadingScreen";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [isDialogVisible, setIsDialogVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const domain = "example.com";
+
+  const mockApiCall = () => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  };
+
+  useEffect(() => {
+    mockApiCall();
+  }, []);
 
   return (
     <>
@@ -29,9 +41,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Header />
+      <Header />
 
+      <main>
         <Dialog
           title="Share DNS"
           onClose={() => setIsDialogVisible(false)}
@@ -40,7 +52,7 @@ export default function Home() {
           <ShareForm />
 
           <Button
-            className="my-0 mx-auto"
+            className="my-0 mx-auto w-[100%] md:w-[70%]"
             size="lg"
             onClick={() => console.log("Send Invited")}
           >
@@ -49,48 +61,53 @@ export default function Home() {
           <SocialMediaButtons />
         </Dialog>
 
-        {/* <Skeleton width="w-12" />
-          <Skeleton color="bg-primary-500" /> */}
-
-        <div className="mb-0 mt-2xl mx-auto p-xl max-w-screen-lg rounded-md border-2 border-neutral-50">
-          <h2 className="text-center italic font-medium text-xl text-neutral-900 pb-md">
+        <div className="mb-0 mx-auto p-lg max-w-screen-lg md:p-xl md:mt-2xl md:rounded-md md:border-2 md:border-neutral-50">
+          <h2 className="text-center italic font-medium text-xl text-neutral-900 pb-2xs md:pb-md md:text-2xl">
             {domain}
           </h2>
 
-          <Banner image="/images/google-domains.png" />
+          <Banner isLoading={isLoading} image="/images/google-domains.png" />
 
-          <GridSection
-            title="How do you want to update your DNS?"
-            padding="py-lg"
-          >
-            <Card
-              title="Update for me"
-              description="You just need to log in, we will update your DNS automatically"
-              variant="primary"
-              withIcon
-            />
-            <Card
-              title="Add DNS Manually"
-              description="Follow our tutorial to update your DNS manually"
-              variant="secondary"
-              withIcon
-            />
-          </GridSection>
+          {isLoading ? (
+            <LoadingScreen />
+          ) : (
+            <>
+              <GridSection
+                title="How do you want to update your DNS?"
+                padding="py-lg"
+              >
+                <Card
+                  title="Update for me"
+                  description="You just need to log in, we will update your DNS automatically"
+                  variant="primary"
+                  withIcon
+                />
+                <Card
+                  title="Add DNS Manually"
+                  description="Follow our tutorial to update your DNS manually"
+                  variant="secondary"
+                  withIcon
+                />
+              </GridSection>
 
-          <section className="flex justify-between items-center py-lg border-t border-b border-neutral-50">
-            <p>Want to send these to a friend/colleague to do for you?</p>
-            <Button withIcon onClick={() => setIsDialogVisible(true)}>
-              Share
-            </Button>
-          </section>
+              <section className="flex justify-between items-center py-lg border-t border-b border-neutral-50">
+                <p className="mr-xs text-md md:text-base">
+                  Want to send these to a friend/colleague to do for you?
+                </p>
+                <Button withIcon onClick={() => setIsDialogVisible(true)}>
+                  Share
+                </Button>
+              </section>
 
-          <GridSection
-            title="Are you a PRO at DNS? Update these records:"
-            padding="pt-lg"
-          >
-            <ResultCard type="A" value="104.248.56.174" name="@" />
-            <ResultCard type="CNAME" value="ssl.trady.com" name="www" />
-          </GridSection>
+              <GridSection
+                title="Are you a PRO at DNS? Update these records:"
+                padding="pt-lg"
+              >
+                <ResultCard type="A" value="104.248.56.174" name="@" />
+                <ResultCard type="CNAME" value="ssl.trady.com" name="www" />
+              </GridSection>
+            </>
+          )}
         </div>
       </main>
 

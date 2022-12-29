@@ -11,7 +11,7 @@ export const Dialog = ({ title, children, onClose, visible }: DialogProps) => {
     >
       <div
         role="dialog"
-        className="relative my-0 mx-auto max-w-xl rounded-md bg-white top-1/2 -translate-y-2/4"
+        className="relative my-0 mx-lg max-w-xl rounded-md bg-white top-1/2 -translate-y-2/4 md:mx-auto"
       >
         {/* banner header */}
         <section className="flex justify-between py-sm px-md border-b border-neutral-100">

@@ -7,7 +7,7 @@ export const Tag = ({ children, onClose }: TagProps) => {
     <div className="grid grid-cols-[_1fr,_auto] gap-1 items-center py-2xs px-xs max-w-fit text-sm rounded-sm bg-secondary-100">
       {children}
 
-      <button onClick={onClose}>
+      <button type="button" onClick={onClose}>
         <Close />
       </button>
     </div>

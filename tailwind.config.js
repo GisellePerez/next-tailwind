@@ -40,7 +40,8 @@ module.exports = {
       md: "0.875rem", // 14px
       base: "1rem", // 16px
       lg: "1.25rem", // 20px
-      xl: "2rem", // 32px
+      xl: "1.5rem", // 24px
+      "2xl": "2rem", // 32px
     },
     extend: {
       borderRadius: {
@@ -58,6 +59,8 @@ module.exports = {
         "2xl": "3rem", // 48px
       },
       margin: {
+        "4xs": "0.25rem", // 4px
+        "3xs": "0.375rem", // 6px
         "2xs": "0.5rem", // 8px
         xs: "0.75rem", // 12px
         sm: "1rem", // 16px
@@ -65,6 +68,10 @@ module.exports = {
         lg: "1.5rem", // 24px
         xl: "2rem", // 32px
         "2xl": "5rem",
+      },
+      maxWidth: {
+        skeletonLg: "120px",
+        skeletonSm: "54px",
       },
     },
   },

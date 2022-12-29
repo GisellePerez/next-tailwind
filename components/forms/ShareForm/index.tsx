@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../../Button";
 import { Tag } from "../../Tag";
 
 export const ShareForm = () => {
-  const dummyFn = () => {};
+  const [inputValue, setInputValue] = useState("another@guest.com");
 
-  const subtitleStyles = "text-md mb-2xs";
+  const subtitleStyles = "mb-2xs text-md text-neutral-900";
+
+  const dummyFn = () => {};
 
   return (
     <div>
@@ -22,14 +24,15 @@ export const ShareForm = () => {
       </form>
 
       <h4 className={subtitleStyles}>Send as an email invited</h4>
-      <form className="flex gap-x-2 px-2xs py-3xs mb-xs border border-secondary-600 rounded-md">
+      <form className="flex flex-wrap gap-x-2 px-3xs py-3xs mb-xs border border-secondary-600 rounded-md md:flex-nowrap md:px-2xs">
         <Tag onClose={dummyFn}>nico@trady.com</Tag>
         <Tag onClose={dummyFn}>tom@trady.com</Tag>
         <input
-          className="w-full text-sm"
+          className="py-2xs w-full text-sm"
           name="attendees"
           type="text"
-          value="another@guest.com"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
         />
       </form>
     </div>

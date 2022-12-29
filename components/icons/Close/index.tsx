@@ -14,9 +14,9 @@ export const Close = ({ color = "#000000", className }: IconProps) => {
       <path
         d="M4 4.00002L12.5161 12.5161M4 12.5161L12.5161 4"
         stroke={color}
-        stroke-width="1.5"
-        stroke-linecap="round"
-        // stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
